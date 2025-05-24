@@ -1,66 +1,126 @@
-# Ex.No.10
-Content Creation (Reports, Articles, Case Studies, etc.) Using Prompt Patterns
+# Ex.No.10 Content Creation (Reports, Articles, Case Studies, etc.) Using Prompt Patterns
 
-## Date:
-## Reg. No.
+## Date: 23/05/2025
+## Reg. No. : 212222060185
 
 ## Aim:
 To demonstrate how various prompting techniques (query decomposition, decision-making, semantic filtering, etc.) can be employed to create content such as reports, articles, case studies, or creative works like comic books, using ChatGPT or similar models. The objective is to highlight how different prompt structures affect the content's quality, coherence, and structure.
 
-## Procedure:
-1.	Introduction to Prompt Patterns: Begin by understanding the following prompt patterns:
-○	Query Decomposition: Breaking down complex queries into smaller, actionable parts.
-○	Decision Making: Asking the model to choose between options or directions.
-○	Answer Engineering: Refining outputs by giving detailed instructions on how to structure or format the answer.
-○	Fact Check List: Ensuring the content is factually accurate, especially for reports or case studies.
-○	Tail Generation: Extending the content logically to create depth in storytelling or analysis.
-○	Menu Actions: Presenting multiple action choices and guiding the AI to select one.
-○	Semantic Filter: Applying filters to control the tone, style, and accuracy of the content.
-2.	Choosing the Content Type: Decide on the type of content you want to create. This could be:
-○	Reports (e.g., industry analysis, sustainability reports, etc.)
-○	Case Studies (e.g., business solutions, technological innovations)
-○	Articles (e.g., opinion pieces, educational articles)
-○	Creative Content (e.g., comic book story, short stories, video scripts)
-3.	For example, you could choose a business report on market trends, a case study on a successful startup, or even a story-based prompt like creating a fictional world for a comic.
-4.	Creating the Prompts:
-○	Start with simple prompts to generate initial content.
-○	Gradually refine the prompts, moving toward more complex techniques like decision-making (asking the model to pick one of several options), tail generation (extending the narrative), and semantic filtering (adjusting style or tone).
-5.	Generating and Refining Outputs: Use the model to generate initial drafts, and then refine the outputs using iterative adjustments:
-○	For a report, prompt the model with basic data, then ask for a deeper analysis and insights.
-○	For creative content, refine the initial story idea with specific details on characters, settings, or actions.
-6.	Review and Evaluation: After generating content, evaluate the outputs for:
-○	Coherence: Is the generated content logical and structured?
-○	Creativity/Originality: Is the content engaging and fresh?
-○	Accuracy: Is the content factually accurate (for reports and case studies)?
-○	Tone and Style: Does the content match the intended tone (formal, creative, educational)?
-________________________________________
-Test Case Scenarios for Content Generation: (USE ANY 2)
-content generation scenarios:
-1.	Business Report on Market Trends
-2.	Case Study on Business Success
-3.	Article on Climate Change
-4.	Creative Writing - Sci-Fi Short Story
-5.	Educational Report on Renewable Energy
-6.	Product Launch Announcement
-7.	Travel Blog Post
-8.	Research Paper on Artificial Intelligence
-9.	Interview Transcript for Documentary
-10.	Sustainability Practices in Fashion
-11.	How to Build an E-commerce Website
-12.	Social Issue Awareness Campaign
-13.	Artificial Intelligence Impact on Healthcare
-## Instructions:
-1.	Select a Topic: Choose a topic (e.g., market trends, climate change, sci-fi story) that interests you.
-2.	Use Basic Prompts: Start by crafting simple, general prompts to generate initial content.
-3.	Refine Your Prompts: Gradually introduce more complexity by adding details, refining the structure, and using different prompt techniques like decision making or semantic filtering.
-4.	Evaluate the Output: Review the generated content for clarity, creativity, and accuracy.
-5.	Iterate for Improvement: Based on the feedback, refine the prompts and regenerate the content as needed.
+## Software Requirements
+1. Python 3.8+ and an IDE (e.g., Jupyter, VS Code).
+2.  APIs:
+o OpenAI for text generation (e.g., ChatGPT) and DALL•E for image creation.
+o GoogleCloud Text-to-Speech for voice synthesis.
+o Hugging Face for music and sound effects.
+o RunwayML for video generation.
+3. Libraries:
+o openai for OpenAI API integration.
+o requests for API calls.
+o Optional: moviepy for video editing.
 
-## Deliverables:
-1.	First Draft: A basic draft of the report, case study, article, or story generated using simple prompts.
-2.	Refined Content: A more detailed and structured output, achieved by applying more advanced prompt techniques.
-3.	Multiple Versions: Different versions of the content, showing the effect of prompt changes on the output.
-4.	Final Version: The polished version of the content after incorporating feedback and refining the prompts.
+## Experiment Design
+## Experiment 1: Text-Based Content Creation
+• Objective: Test how prompt specificity and structure impact text generation.
+• Applications: Blog writing, social media captions, storytelling, or technical content.
+
+Prompts:
+1. Simple: "Write a blog post about climate change."
+2. Detailed: "Write a 500-word blog post about the effects of climate change on polar regions, with examples."
+3. Contextual: "Imagine you are a polar scientist writing an article for a general audience on how climate change affects Arctic wildlife."
+
+## Code: python
+```
+Copy code
+import openai
+openai.api_key = "your_openai_api_key"
+def generate_text(prompt): response =
+openai.Completion.create(
+engine="text-davinci-003",
+prompt=prompt, max_tokens=500,
+temperature=0.7,
+)
+return response.choices[0].text.strip()
+# Example usage text = generate_text("Write a story about an AI
+exploring a new planet.") print(text)
+```
+
+## Experiment 2:Image Content Creation
+• Objective: Explore how descriptive prompts influence AI-generated images.
+• Applications: Digital art, graphic design, marketing materials.
+
+1. Simple: "Generate an image of a cat."
+2. Detailed: "Create an image of a fluffy white cat sitting on a sunny windowsill surrounded by plants."
+3. Contextual: "Design an artistic poster featuring a futuristic cityscape with glowing neon lights."
+   
+## Code: python
+```
+Copy code
+import openai
+def generate_image(prompt):
+response = openai.Image.create(
+prompt=prompt,
+n=1,
+size="1024x1024"
+)
+return response['data'][0]['url']
+# Example usage image_url = generate_image("A serene lake surrounded by mountains
+during sunrise.") print("Generated Image URL:", image_url)
+```
+
+## Experiment 3: Audio Content Creation
+• Objective: Test how prompt design impacts AI-generated music, sound effects, and narration
+• Applications: Podcasts, background music, sound effects for videos improves the realism and integration of effects.
+
+Prompts:
+1. Simple: "Create a calm piano melody."
+2. Detailed: "Generate a 2-minute relaxing piano melody suitable for meditation." 3.
+Contextual: "Compose upbeat electronic music for a workout session."
+
+## Code: python
+```
+Copy code
+import
+requests
+
+def generate_audio(prompt):
+API_KEY = "your_huggingface_api_key" url = "https://api-
+inference.huggingface.co/models/facebook/musicgen" headers =
+{"Authorization": f"Bearer {API_KEY}"} payload = {"inputs": prompt}
+response = requests.post(url, headers=headers, json=payload)
+print("Audio URL:", response.json().get("audio_url", "No URL"))
+# Example usage generate_audio("Create a soothing acoustic guitar melody
+for relaxation.")
+```
+
+## Experiment 4: Video Content Creation
+• Objective: Assess how different prompt styles influence AI-generated videos.
+• Applications: Marketing campaigns, educational videos, storytelling.
+
+Prompts:
+1. Simple: "Create a video of a sunrise."
+2. Detailed: "Generate a video of a colorful sunrise over a mountain range with birds flying in the background."
+3. Contextual: "Produce a 10-second animation showing a robot exploring a futuristic city."
+
+## Code: python 
+```
+Copy code def
+generate_video(prompt):
+API_KEY = "your_runwayml_api_key" url =
+"https://api.runwayml.com/v1/videos" headers =
+{"Authorization": f"Bearer {API_KEY}"}
+payload = {"text_prompt": prompt} response =
+requests.post(url, headers=headers, json=payload)
+print("Video URL:",
+response.json().get("video_url", "No URL"))
+# Example usage generate_video("Create a video of a whale
+swimming in the ocean.")
+```
+
+## Output and Results
+1. Text: Detailed prompts produce richer, audience-focused content.
+2. Images: Contextual prompts enhance visual depth and narrative.
+3. Audio: Music and sound effects align better with mood-specific or descriptive prompts.
+4. Video: Complex prompts generate cohesive and visually engaging outputs.
 
 ## Conclusion:
 By applying various prompting techniques, you can generate high-quality content for a wide range of use cases, from business reports and case studies to creative works like short stories and articles. This experiment demonstrates how structured prompting can guide AI models like ChatGPT to create coherent, accurate, and engaging outputs tailored to specific needs.
